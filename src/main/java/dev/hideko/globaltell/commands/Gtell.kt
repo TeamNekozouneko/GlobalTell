@@ -23,8 +23,6 @@ class Gtell: Command("gtell"), TabExecutor {
                             .create()
                         it.sendMessage(*textComponent)
                         sender.sendMessage(*textComponent)
-                    } else {
-                        sender.sendMessage("§c指定したプレイヤー「${args[0]}」は存在しませんでした。")
                     }
                 }
             }
