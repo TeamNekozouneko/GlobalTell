@@ -14,6 +14,7 @@ class Gtell: Command("gtell"), TabExecutor {
     override fun execute(sender: CommandSender?, args: Array<out String>?) {
         if(args !== null) {
             if(sender is ProxiedPlayer) {
+                var playerFound = false
                 GlobalTell.instance.proxy.players.forEach {
                     if(it.name == args[0]) {
                         val chat = ChatColor.translateAlternateColorCodes('&', args[1])
@@ -23,6 +24,10 @@ class Gtell: Command("gtell"), TabExecutor {
                             .create()
                         it.sendMessage(*textComponent)
                         sender.sendMessage(*textComponent)
+                        playerFound = true
+                    }
+                    if (!playerFound) {
+                        sender.sendMessage("§c指定されたプレイヤーは見つかりませんでした。")
                     }
                 }
             }
