@@ -26,9 +26,9 @@ class Gtell: Command("gtell"), TabExecutor {
                         sender.sendMessage(*textComponent)
                         playerFound = true
                     }
-                    if (!playerFound) {
-                        sender.sendMessage("§c指定されたプレイヤーは見つかりませんでした。")
-                    }
+                }
+                if (!playerFound) {
+                    sender.sendMessage("§c指定されたプレイヤーは見つかりませんでした。")
                 }
             }
         } else {
